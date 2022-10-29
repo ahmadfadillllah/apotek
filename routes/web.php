@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -28,4 +29,9 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
     Route::get('/dashboard/profile', [ProfileController::class, 'index'])->name('profile.index');
+    Route::post('/dashboard/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+
+    Route::get('/dashboard/change-password', [ChangePasswordController::class, 'index'])->name('changepassword.index');
+    Route::post('/dashboard/change-password/update', [ChangePasswordController::class, 'update'])->name('changepassword.update');
+
 });

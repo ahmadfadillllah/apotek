@@ -66,8 +66,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="javascript:void(0);" class="nav-link" data-key="t-analytics">
-                        <i class="ri-pages-line"></i> <span data-key="t-pages">Settings</span>
+                    <a href="{{ route('changepassword.index') }}" class="nav-link" data-key="t-analytics">
+                        <i class="ri-pages-line"></i> <span data-key="t-pages">Ganti Password</span>
                     </a>
                 </li>
                 <li class="nav-item">

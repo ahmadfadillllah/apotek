@@ -1,6 +1,7 @@
 @include('admin.layout.head')
 @include('admin.layout.header')
 @include('admin.layout.sidebar')
+@include('admin.notification.index')
 <div class="main-content">
 
     <div class="page-content">
@@ -42,8 +43,9 @@
                                 </li>
                             </ul>
                             <div class="flex-shrink-0">
-                                <a href="pages-profile-settings.html" class="btn btn-success"><i class="ri-edit-box-line align-bottom"></i> Edit Profile</a>
+                                <a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editProfile"><i class="ri-edit-box-line align-bottom"></i> Edit Profile</a>
                             </div>
+                            @include('admin.profile.modal.edit')
                         </div>
                         <!-- Tab panes -->
                         <div class="tab-content pt-4 text-muted">
@@ -70,8 +72,8 @@
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <th class="ps-0" scope="row">Tanggal Bergabung</th>
-                                                                <td class="text-muted">{{ Auth::user()->created_at }}</td>
+                                                                <th class="ps-0" scope="row">Tanggal Update</th>
+                                                                <td class="text-muted">{{ Auth::user()->updated_at }}</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
