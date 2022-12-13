@@ -38,17 +38,17 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="javascript:void(0);" class="nav-link" data-key="t-analytics">
+                    <a href="{{ route('transaksi.index') }}" class="nav-link" data-key="t-analytics">
+                        <i class="ri-apps-2-line"></i> <span data-key="t-apps">Tambah Transaksi</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('itemset.index') }}" class="nav-link" data-key="t-analytics">
                         <i class="ri-layout-3-line"></i> <span data-key="t-layouts">Data Transaksi</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="javascript:void(0);" class="nav-link" data-key="t-analytics">
-                        <i class="ri-apps-2-line"></i> <span data-key="t-apps">Data Menu</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0);" class="nav-link" data-key="t-analytics">
+                    <a href="{{ route('apriori.index') }}" class="nav-link" data-key="t-analytics">
                         <i class="ri-pencil-ruler-2-line"></i> <span data-key="t-base-ui">Proses Apriori</span>
                     </a>
                 </li>
