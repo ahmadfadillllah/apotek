@@ -202,34 +202,29 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                    @for ($a=0; $a <= count($itemset1); $a++)
-                                                        @for ($b=0; $b <= count($itemset1); $b++)
-                                                            @php
-                                                            $itemset3_var1 = $itemset2_var1 = $itemset2_var2 = $jumlahItemset2 = $supportItemset2 = array();
-                                                                if (isset($itemset1[$a]) and isset($itemset1[$b])) {
-                                                                        $variance1 = $itemset1[$a];
-                                                                        $variance2 = $itemset1[$b];
-                                                                        $jml_itemset2 = $data['jumlah'][$item];
-                                                                        $support2 = ($data['jumlah'][$item]/$data['num']) * 100;
-                                                                        $lolos = ($support2 >= $data['support_relatif'])? 1:0;
-                                                                        if($lolos){
-                                                                            $itemset3_var1[] = $variance1;
-                                                                            $itemset3_var2[] = $variance2;
-                                                                            $itemset3_var3[] = $variance2;
-                                                                            $jumlahItemset2[] = $jml_itemset2;
-                                                                            $supportItemset2[] = $support2;
-                                                                        }
-                                                                }
-                                                            @endphp
-                                                            <tr>
-                                                                <td>{{ $variance1 }}</td>
-                                                                <td>{{ $variance2 }}</td>
-                                                                <td>{{ $jml_itemset2 }}</td>
-                                                                <td>{{ $support2 }}</td>
-                                                                <td>{{ (($lolos==1)?"Lolos":"Tidak Lolos") }}</td>
-                                                            </tr>
-                                                        @endfor
-                                                    @endfor
+                                                @foreach ($itemset1 as $key => $value1)
+                                                    @foreach ($itemset1 as $key => $value2)
+                                                        @php
+                                                            $jml_itemset2 = $data['jumlah'][$itemset1[$key]];
+                                                            $support2 = ($jml_itemset2/$data['num']) * 100;
+                                                            $lolos = ($support2 >= $data['support_relatif'])? 1:0;
+
+                                                            if($lolos){
+                                                                $itemset2_var1[] = $value1;
+                                                                $itemset2_var2[] = $value2;
+                                                                $jumlahItemset2[] = $jml_itemset2;
+                                                                $supportItemset2[] = $support2;
+                                                            }
+                                                        @endphp
+                                                        <tr>
+                                                            <td>{{ $value1 }}</td>
+                                                            <td>{{ $value2 }}</td>
+                                                            <td>{{ $jml_itemset2 }}</td>
+                                                            <td>{{ $support2 }}</td>
+                                                            <td>{{ (($lolos==1)?"Lolos":"Tidak Lolos") }}</td>
+                                                        </tr>
+                                                    @endforeach
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
@@ -266,11 +261,13 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($itemset2_var1 as $key => $value)
-                                                        <td>{{ $value }}</td>
+                                                @foreach ($itemset2_var1 as $key => $value3)
+                                                        <tr>
+                                                            <td>{{ $value3 }}</td>
                                                         <td>{{ $itemset2_var2[$key] }}</td>
                                                         <td>{{ $jumlahItemset2[$key] }}</td>
                                                         <td>{{ $supportItemset2[$key] }}</td>
+                                                        </tr>
                                                 @endforeach
                                             </tbody>
                                         </table>
@@ -310,15 +307,26 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($itemset3_var1 as $key => $value)
-                                                <tr>
-                                                    <td>{{ $itemset3_var1[$key] }}</td>
-                                                    <td>{{ $itemset3_var2[$key] }}</td>
-                                                    <td>{{ $itemset3_var3[$key] }}</td>
-                                                    <td>{{ $jml_itemset2 }}</td>
-                                                    <td>{{ $support2 }}</td>
-                                                    <td>{{ (($lolos==1)?"Lolos":"Tidak Lolos") }}</td>
-                                                </tr>
+                                                @foreach ($itemset2_var1 as $key => $value3)
+                                                            @php
+                                                                $jml_itemset3 = $data['jumlah'][$itemset2_var1[$key]];
+                                                                $support3 = ($jml_itemset3/$data['num']) * 100;
+                                                                $lolos = ($support3 >= $data['support_relatif'])? 1:0;
+                                                                if($lolos){
+                                                                    $itemset2_var1[] = $value1;
+                                                                    $itemset2_var2[] = $value2;
+                                                                    $jumlahItemset2[] = $jml_itemset2;
+                                                                    $supportItemset2[] = $support2;
+                                                                }
+                                                            @endphp
+                                                            <tr>
+                                                                <td>{{ $value1 }}</td>
+                                                                <td>{{ $value2 }}</td>
+                                                                <td>{{ $value3 }}</td>
+                                                                <td>{{ $jml_itemset3 }}</td>
+                                                                <td>{{ $support2 }}</td>
+                                                                <td>{{ (($lolos==1)?"Lolos":"Tidak Lolos") }}</td>
+                                                            </tr>
                                                 @endforeach
                                             </tbody>
                                         </table>
@@ -332,7 +340,7 @@
                 </div> <!-- end col -->
             </div>
 
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col">
                     @include('admin.notification.index')
                     <div class="h-100">
@@ -341,7 +349,7 @@
                                 <div class="card">
                                     <!-- Grids in modals -->
                                     <div class="card-header">
-                                        <h5 class="card-title mb-0">Itemset 2 yang lolos:</h5>
+                                        <h5 class="card-title mb-0">Itemset 3 yang lolos:</h5>
                                     </div>
                                     <div class="card-body">
                                         <table id="itemset3lolos"
@@ -372,7 +380,7 @@
                         <!--end row-->
                     </div> <!-- end .h-100-->
                 </div> <!-- end col -->
-            </div>
+            </div> --}}
 
         </div>
         <!-- container-fluid -->
