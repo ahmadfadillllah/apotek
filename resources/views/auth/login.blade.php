@@ -63,9 +63,9 @@
                                                 placeholder="Masukkan Email">
                                         </div>
                                         <div class="mb-3">
-                                            <div class="float-end">
+                                            {{-- <div class="float-end">
                                                 <a href="auth-pass-reset-basic.html" class="text-muted">Lupa Password?</a>
-                                            </div>
+                                            </div> --}}
                                             <label class="form-label" for="password-input">Password</label>
                                             <div class="position-relative auth-pass-inputgroup mb-3">
                                                 <input type="password" class="form-control pe-5 password-input"
@@ -85,6 +85,10 @@
                                         <div class="mt-4">
                                             <button class="btn btn-success w-100" type="submit">Masuk</button>
                                         </div>
+                                        <div class="mt-4">
+                                            <a href="{{ route('dashboardpasien.index') }}" >Kembali</a>
+                                        </div>
+
                                     </form>
                                 </div>
                             </div>
@@ -115,7 +119,7 @@
                                 <script>
                                     document.write(new Date().getFullYear())
 
-                                </script> {{ config('app.name') }}. Crafted with Mutya Fadilah</i> by <a href="https://adhyy.my.id" target="_blank">Ahmad Fadillah</a>
+                                </script> {{ config('app.name') }}. Crafted with Nisrina Dwi Ambarwati</i> by <a href="https://adhyy.my.id" target="_blank">Ahmad Fadillah</a>
                             </p>
                         </div>
                     </div>

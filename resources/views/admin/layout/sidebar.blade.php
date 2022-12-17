@@ -2,25 +2,24 @@
     <!-- LOGO -->
     <div class="navbar-brand-box">
         <!-- Dark Logo-->
-        <a href="index.html" class="logo logo-dark">
+        <a href="javascript:void(0);" class="logo logo-dark">
             <span class="logo-sm">
-                <h3 style="color: rgb(39, 38, 38)">{{ config('app.name') }}</h3>
+                <img src="{{ asset('admin/themesbrand.com/velzon/html/default') }}/assets/images/logo-sm.png" alt="" height="22">
             </span>
             <span class="logo-lg">
-                <h3 style="color: rgb(39, 38, 38)">{{ config('app.name') }}</h3>
+                <img src="{{ asset('admin/themesbrand.com/velzon/html/default') }}/assets/images/logo-dark.png" alt="">
             </span>
         </a>
         <!-- Light Logo-->
-        <a href="index.html" class="logo logo-light">
+        <a href="javascript:void(0);" class="logo logo-light">
             <span class="logo-sm">
-                <h3 style="color: rgb(236, 236, 236)">{{ config('app.name') }}</h3>
+                <img src="{{ asset('admin/themesbrand.com/velzon/html/default') }}/assets/images/logo-sm.png" alt="" height="22">
             </span>
             <span class="logo-lg">
-                <h3 style="color: rgb(236, 236, 236)">{{ config('app.name') }}</h3>
+                <img src="{{ asset('admin/themesbrand.com/velzon/html/default') }}/assets/images/logo-light.png" alt="">
             </span>
         </a>
-        <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
-            id="vertical-hover">
+        <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
             <i class="ri-record-circle-line"></i>
         </button>
     </div>
@@ -38,26 +37,22 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('transaksi.index') }}" class="nav-link" data-key="t-analytics">
-                        <i class="ri-apps-2-line"></i> <span data-key="t-apps">Tambah Transaksi</span>
+                    <a href="{{ route('datapasien.index') }}" class="nav-link" data-key="t-analytics">
+                        <i class="ri-user-5-line"></i> <span data-key="t-dashboards">Data Pasien</span>
                     </a>
                 </li>
+                @if (Auth::user()->role == 'apoteker')
+                    <li class="nav-item">
+                        <a href="{{ route('dataobat.index') }}" class="nav-link" data-key="t-analytics">
+                            <i class="ri-health-book-line"></i> <span data-key="t-dashboards">Data Obat</span>
+                        </a>
+                    </li>
+                @endif
                 <li class="nav-item">
-                    <a href="{{ route('itemset.index') }}" class="nav-link" data-key="t-analytics">
-                        <i class="ri-layout-3-line"></i> <span data-key="t-layouts">Data Transaksi</span>
+                    <a href="{{ route('resepobat.index') }}" class="nav-link" data-key="t-analytics">
+                        <i class="ri-mental-health-line"></i> <span data-key="t-dashboards">Resep Obat</span>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('apriori.index') }}" class="nav-link" data-key="t-analytics">
-                        <i class="ri-pencil-ruler-2-line"></i> <span data-key="t-base-ui">Proses Apriori</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0);" class="nav-link" data-key="t-analytics">
-                        <i class="ri-pencil-ruler-2-line"></i> <span data-key="t-base-ui">Proses Hash-Based</span>
-                    </a>
-                </li>
-
+                </li>'
                 <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Pages</span></li>
 
                 <li class="nav-item">

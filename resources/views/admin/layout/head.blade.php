@@ -8,7 +8,7 @@
     <title>Dashboard | {{ config('app.name') }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('admin/themesbrand.com/velzon/html/default') }}/assets/images/favicon.ico">
+    <link rel="shortcut icon" href="{{ asset('admin/themesbrand.com/velzon/html/default') }}/assets/images/logo-sm.png">
 
     <link rel="stylesheet" href="{{ asset('admin/themesbrand.com/velzon/html/default') }}/assets/libs/%40simonwep/pickr/themes/classic.min.css" /> <!-- 'classic' theme -->
     <link rel="stylesheet" href="{{ asset('admin/themesbrand.com/velzon/html/default') }}/assets/libs/%40simonwep/pickr/themes/monolith.min.css" /> <!-- 'monolith' theme -->
@@ -30,6 +30,11 @@
     <link href="{{ asset('admin/themesbrand.com/velzon/html/default') }}/assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="{{ asset('admin/themesbrand.com/velzon/html/default') }}/assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- quill css -->
+    <link href="{{ asset('admin/themesbrand.com/velzon/html/default') }}/assets/libs/quill/quill.core.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/themesbrand.com/velzon/html/default') }}/assets/libs/quill/quill.bubble.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/themesbrand.com/velzon/html/default') }}/assets/libs/quill/quill.snow.css" rel="stylesheet" type="text/css" />
 
     <!--datatable css-->
     <link rel="stylesheet" href="{{ asset('admin') }}/cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />

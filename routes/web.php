@@ -4,9 +4,15 @@ use App\Http\Controllers\AprioriController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardPasienController;
+use App\Http\Controllers\DataObatController;
+use App\Http\Controllers\DataPasien;
+use App\Http\Controllers\DataPasienController;
 use App\Http\Controllers\ItemsetController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ResepObatController;
 use App\Http\Controllers\TransaksiController;
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,25 +27,37 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->route('dashboard.index');
+    return redirect()->route('dashboardpasien.index');
 });
 
-Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/dashboard/home', [DashboardPasienController::class, 'index'])->name('dashboardpasien.index');
+Route::get('/dashboard/home/cari', [DashboardPasienController::class, 'cari'])->name('dashboardpasien.cari');
+
+Route::get('/login_page', [AuthController::class, 'login'])->name('login');
 Route::post('/login/post', [AuthController::class, 'loginpost'])->name('login.post');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::middleware(['auth', 'checkRole:admin'])->group(function () {
+Route::middleware(['auth', 'checkRole:perawat,dokter,apoteker,pasien'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
-    Route::get('/dashboard/transaksi', [TransaksiController::class, 'index'])->name('transaksi.index');
-    Route::post('/dashboard/transaksi/insert', [TransaksiController::class, 'insert'])->name('transaksi.insert');
+    Route::get('/data_pasien', [DataPasienController::class, 'index'])->name('datapasien.index');
+    Route::post('/data_pasien/insert', [DataPasienController::class, 'insert'])->name('datapasien.insert');
+    Route::post('/data_pasien/update/{id}', [DataPasienController::class, 'update'])->name('datapasien.update');
+    Route::get('/data_pasien/destroy/{id}', [DataPasienController::class, 'destroy'])->name('datapasien.destroy');
+    Route::get('/data_pasien/antrian/{pasien_id}', [DataPasienController::class, 'antrian'])->name('datapasien.antrian');
 
-    Route::get('/dashboard/itemset', [ItemsetController::class, 'index'])->name('itemset.index');
-    Route::get('/dashboard/itemset/destroy/{id}', [ItemsetController::class, 'destroy'])->name('itemset.destroy');
-    Route::post('/dashboard/itemset/import', [ItemsetController::class, 'import'])->name('itemset.import');
+    Route::get('/data_obat', [DataObatController::class, 'index'])->name('dataobat.index');
+    Route::post('/data_obat/insert', [DataObatController::class, 'insert'])->name('dataobat.insert');
+    Route::post('/data_obat/update/{id}', [DataObatController::class, 'update'])->name('dataobat.update');
+    Route::get('/data_obat/destroy/{id}', [DataObatController::class, 'destroy'])->name('dataobat.destroy');
 
-    Route::get('/dashboard/apriori', [AprioriController::class, 'index'])->name('apriori.index');
-    Route::post('/dashboard/apriori/proses', [AprioriController::class, 'proses'])->name('apriori.proses');
+    Route::get('/resep_obat', [ResepObatController::class, 'index'])->name('resepobat.index');
+    Route::get('/resep_obat/{id}', [ResepObatController::class, 'resep'])->name('resepobat.resep');
+    Route::post('/resep_obat/{id}/update', [ResepObatController::class, 'update'])->name('resepobat.update');
+    Route::post('/resep_obat/{pasien_id}/insert', [ResepObatController::class, 'insert'])->name('resepobat.insert');
+    Route::get('/resep_obat/{pasien_id}/destroy', [ResepObatController::class, 'destroy'])->name('resepobat.destroy');
+    Route::get('/resep_obat/{id}/hapusobat', [ResepObatController::class, 'hapusobat'])->name('resepobat.hapusobat');
+    Route::post('/resep_obat/keluhan/{pasien_id}', [ResepObatController::class, 'keluhan'])->name('resepobat.keluhan');
 
     Route::get('/dashboard/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::post('/dashboard/profile/update', [ProfileController::class, 'update'])->name('profile.update');

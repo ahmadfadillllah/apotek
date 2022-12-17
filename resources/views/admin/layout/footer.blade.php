@@ -5,7 +5,7 @@
                 <script>
                     document.write(new Date().getFullYear())
 
-                </script> © {{ config('app.name') }}. Crafted with Mutya Fadilah
+                </script> © {{ config('app.name') }}. Crafted with Nisrina Dwi Ambarwati
             </div>
             <div class="col-sm-6">
                 <div class="text-sm-end d-none d-sm-block">
@@ -49,6 +49,15 @@
 <script src="{{ asset('admin') }}/cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 <script src="{{ asset('admin') }}/cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
 <script src="{{ asset('admin') }}/cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+<!-- ckeditor -->
+<script src="{{ asset('admin/themesbrand.com/velzon/html/default') }}/assets/libs/%40ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
+
+<!-- quill js -->
+<script src="{{ asset('admin/themesbrand.com/velzon/html/default') }}/assets/libs/quill/quill.min.js"></script>
+
+<!-- init js -->
+<script src="{{ asset('admin/themesbrand.com/velzon/html/default') }}/assets/js/pages/form-editor.init.js"></script>
 
 <!-- Modern colorpicker bundle -->
 <script src="{{ asset('admin/themesbrand.com/velzon/html/default') }}/assets/libs/%40simonwep/pickr/pickr.min.js"></script>
