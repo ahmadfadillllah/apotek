@@ -17,6 +17,12 @@
                         </div>
                         <div class="col-xxl-6">
                             <div>
+                                <label for="firstName" class="form-label">Email</label>
+                                <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}" required>
+                            </div>
+                        </div>
+                        <div class="col-xxl-6">
+                            <div>
                                 <label for="firstName" class="form-label">Avatar</label>
                                 <input type="file" class="form-control" name="avatar" placeholder="Enter firstname" required>
                             </div>

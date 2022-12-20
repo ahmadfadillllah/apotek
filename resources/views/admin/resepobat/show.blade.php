@@ -29,9 +29,10 @@
                                 <div class="col-xxl-6 col-md-6">
                                     <div>
                                         <label for="disabledInput" class="form-label">Durasi Waktu</label>
-                                        <p class="text-info">{{ $time->h }}:{{ $time->i }}:{{ $time->s }}</p>
+                                        <h2 class="text-info">{{ $time->h }}:{{ $time->i }}:{{ $time->s }}</h2>
                                     </div>
                                 </div>
+                                @if (Auth::user()->role != 'dokter')
                                 <div class="col-xxl-12 col-md-6">
                                     <div>
                                         <button type="button" type="submit" class="btn btn-warning btn-animation waves-effect waves-light"
@@ -39,6 +40,7 @@
                                         @include('admin.resepobat.end')
                                     </div>
                                 </div>
+                                @endif
                             </div>
                         </div><!-- end card-body -->
                     </div><!-- end card -->

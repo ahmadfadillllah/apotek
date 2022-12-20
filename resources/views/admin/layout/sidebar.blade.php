@@ -48,11 +48,13 @@
                         </a>
                     </li>
                 @endif
+                @if (Auth::user()->role != 'perawat')
                 <li class="nav-item">
                     <a href="{{ route('resepobat.index') }}" class="nav-link" data-key="t-analytics">
                         <i class="ri-mental-health-line"></i> <span data-key="t-dashboards">Resep Obat</span>
                     </a>
-                </li>'
+                </li>
+                @endif
                 <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Pages</span></li>
 
                 <li class="nav-item">
