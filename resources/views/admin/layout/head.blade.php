@@ -10,6 +10,13 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('admin/themesbrand.com/velzon/html/default') }}/assets/images/logo-sm.png">
 
+    <!--datatable css-->
+    <link rel="stylesheet" href="{{ asset('admin') }}/cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
+    <!--datatable responsive css-->
+    <link rel="stylesheet" href="{{ asset('admin') }}/cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" />
+
+    <link rel="stylesheet" href="{{ asset('admin') }}/cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+
     <link rel="stylesheet" href="{{ asset('admin/themesbrand.com/velzon/html/default') }}/assets/libs/%40simonwep/pickr/themes/classic.min.css" /> <!-- 'classic' theme -->
     <link rel="stylesheet" href="{{ asset('admin/themesbrand.com/velzon/html/default') }}/assets/libs/%40simonwep/pickr/themes/monolith.min.css" /> <!-- 'monolith' theme -->
     <link rel="stylesheet" href="{{ asset('admin/themesbrand.com/velzon/html/default') }}/assets/libs/%40simonwep/pickr/themes/nano.min.css" /> <!-- 'nano' theme -->
@@ -36,12 +43,7 @@
     <link href="{{ asset('admin/themesbrand.com/velzon/html/default') }}/assets/libs/quill/quill.bubble.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('admin/themesbrand.com/velzon/html/default') }}/assets/libs/quill/quill.snow.css" rel="stylesheet" type="text/css" />
 
-    <!--datatable css-->
-    <link rel="stylesheet" href="{{ asset('admin') }}/cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
-    <!--datatable responsive css-->
-    <link rel="stylesheet" href="{{ asset('admin') }}/cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" />
 
-    <link rel="stylesheet" href="{{ asset('admin') }}/cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
     {{-- SweetAlert2 --}}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>

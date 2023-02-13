@@ -13,7 +13,7 @@
                                 <div>
                                     @if ($p->antrian->no_antrian == NULL)
                                     <span class="badge badge-soft-warning">No. Antrian belum ada</span>
-                                    @if (Auth::user()->role == 'apoteker')
+                                    @if (Auth::user()->role == 'admin' or Auth::user()->role == 'apoteker')
                                         <a href="{{ route('datapasien.antrian', $p->antrian->pasien_id) }}" type="button" class="btn btn-primary btn-label waves-effect waves-light"><i class="ri-user-smile-line label-icon align-middle fs-16 me-2"></i> Ambil No. Antrian</a>
                                     @endif
                                     @else

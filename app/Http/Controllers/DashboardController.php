@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DataObat;
+use App\Models\DataPasien;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -19,6 +22,12 @@ class DashboardController extends Controller
         } else {
             $salam = 'Selamat Malam';
         }
-        return view('admin.dashboard.index', compact('salam'));
+
+        $user = User::all();
+        $resep_obat = DataObat::all();
+        $pasien = DataPasien::all();
+        $dokter = User::where('role', 'dokter')->get();
+
+        return view('admin.dashboard.index', compact('salam', 'user', 'resep_obat', 'pasien', 'dokter'));
     }
 }

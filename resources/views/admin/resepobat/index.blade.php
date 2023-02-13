@@ -28,12 +28,12 @@
                 <div class="col-xl-4">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title mb-3"><i class="ri-user-3-fill align-middle me-1 text-muted"></i> {{ $p->datapasien->nama_lengkap }}</h4>
-                            <p class="text-muted">No. Antrian: <span class="badge badge-gradient-primary">{{ $p->no_antrian }}</span></p>
-                            <p class="text-muted mb-0">NIK: {{ $p->datapasien->nik_ktp }}</p>
-                            <p class="text-muted mb-0">No. Handphone: {{ $p->datapasien->nohp }}</p>
+                            <h4 class="card-title mb-3"><i class="ri-user-3-fill align-middle me-1 text-muted"></i> {{ $p->nama_lengkap }}</h4>
+                            <p class="text-muted">No. Antrian: <span class="badge badge-gradient-primary">{{ $p->antrian->no_antrian }}</span></p>
+                            <p class="text-muted mb-0">NIK: {{ $p->nik_ktp }}</p>
+                            <p class="text-muted mb-0">No. Handphone: {{ $p->nohp }}</p>
                         </div>
-                        @if (Auth::user()->role == 'dokter' or Auth::user()->role == 'apoteker')
+                        @if (Auth::user()->role == 'admin' or Auth::user()->role == 'dokter' or Auth::user()->role == 'apoteker')
                         <div class="card-footer text-center">
                             <a href="{{ route('resepobat.resep', $p->id) }}" class="link-secondary">Resep Obat<i class="ri-arrow-right-s-line align-middle ms-1 lh-1"></i></a>
                         </div>

@@ -29,7 +29,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="card">
-                                    @if (Auth::user()->role == 'perawat')
+                                    @if (Auth::user()->role == 'admin' or Auth::user()->role == 'perawat')
                                         <div class="card-header">
                                             <button type="button" class="btn btn-outline-secondary custom-toggle" data-bs-toggle="modal" data-bs-target="#tambahPasien" style="float: right">
                                                 <span class="icon-on"><i class="ri-add-line align-bottom me-1"></i> Tambah</span>                                        </button>
@@ -45,7 +45,7 @@
                                                     <th>Nama</th>
                                                     <th>Tempat Tanggal Lahir</th>
                                                     <th>Detail</th>
-                                                    @if (Auth::user()->role == 'perawat')
+                                                    @if (Auth::user()->role == 'admin' or Auth::user()->role == 'perawat')
                                                         <th>Edit</th>
                                                         <th>Hapus</th>
                                                     @endif
@@ -59,7 +59,7 @@
                                                         <td>{{ $p->tempat_lahir }}, {{ date('d M Y', strtotime($p->tanggal_lahir)) }}</td>
                                                         <td><button type="button" class="btn btn-success btn-icon waves-effect waves-light"><i class="ri-check-double-line" data-bs-toggle="modal" data-bs-target="#detailPasien-{{ $p->id }}"></i></button></td>
                                                         @include('admin.datapasien.modal.detail')
-                                                        @if (Auth::user()->role == 'perawat')
+                                                        @if (Auth::user()->role == 'admin' or Auth::user()->role == 'perawat')
                                                             <td><button type="button" class="btn btn-warning btn-icon waves-effect waves-light"><i class="ri-24-hours-fill" data-bs-toggle="modal" data-bs-target="#editPasien-{{ $p->id }}"></i></button></td>
                                                             @include('admin.datapasien.modal.edit')
                                                             <td><button type="button" class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-delete-bin-5-line" data-bs-toggle="modal" data-bs-target="#destroyPasien-{{ $p->id }}"></i></button></td>

@@ -16,6 +16,36 @@
     )
     </script>
 @endif
+@error('name')
+    <div class="alert alert-secondary alert-dismissible fade show" role="alert">{{ $message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@enderror
+@error('email')
+    <div class="alert alert-secondary alert-dismissible fade show" role="alert">{{ $message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@enderror
+@error('password')
+    <div class="alert alert-secondary alert-dismissible fade show" role="alert">{{ $message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@enderror
+@error('password_confirmation')
+    <div class="alert alert-secondary alert-dismissible fade show" role="alert">{{ $message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@enderror
+@error('role')
+    <div class="alert alert-secondary alert-dismissible fade show" role="alert">{{ $message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@enderror
+@error('poli')
+    <div class="alert alert-secondary alert-dismissible fade show" role="alert">{{ $message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@enderror
 @error('nik_ktp')
     <div class="alert alert-secondary alert-dismissible fade show" role="alert">{{ $message }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

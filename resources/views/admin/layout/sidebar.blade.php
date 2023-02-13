@@ -41,14 +41,14 @@
                         <i class="ri-user-5-line"></i> <span data-key="t-dashboards">Data Pasien</span>
                     </a>
                 </li>
-                @if (Auth::user()->role == 'apoteker')
+                @if (Auth::user()->role == 'admin' or Auth::user()->role == 'apoteker')
                     <li class="nav-item">
                         <a href="{{ route('dataobat.index') }}" class="nav-link" data-key="t-analytics">
                             <i class="ri-health-book-line"></i> <span data-key="t-dashboards">Data Obat</span>
                         </a>
                     </li>
                 @endif
-                @if (Auth::user()->role != 'perawat')
+                @if (Auth::user()->role == 'admin' or Auth::user()->role != 'perawat')
                 <li class="nav-item">
                     <a href="{{ route('resepobat.index') }}" class="nav-link" data-key="t-analytics">
                         <i class="ri-mental-health-line"></i> <span data-key="t-dashboards">Resep Obat</span>
@@ -56,7 +56,13 @@
                 </li>
                 @endif
                 <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Pages</span></li>
-
+                @if (Auth::user()->role == 'admin')
+                <li class="nav-item">
+                    <a href="{{ route('datauser.index') }}" class="nav-link" data-key="t-analytics">
+                        <i class="ri-account-circle-line"></i> <span data-key="account-circle">Data User</span>
+                    </a>
+                </li>
+                @endif
                 <li class="nav-item">
                     <a href="{{ route('profile.index') }}" class="nav-link" data-key="t-analytics">
                         <i class="ri-account-circle-line"></i> <span data-key="account-circle">Profile</span>

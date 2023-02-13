@@ -11,14 +11,17 @@ use Carbon\Carbon;
 use DateInterval;
 use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ResepObatController extends Controller
 {
     //
     public function index()
     {
-        $pasien = Antrian::with('datapasien')->whereNotNull('no_antrian')->orderBy('no_antrian', 'asc')->get();
+        // $pasien = Antrian::with('datapasien')->whereNotNull('no_antrian')->orderBy('no_antrian', 'asc')->get();
 
+        $pasien = DataPasien::with('antrian')->where('poli', Auth::user()->poli)->get();
+        // dd($pasien);
         return view('admin.resepobat.index', compact('pasien'));
     }
 

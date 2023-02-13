@@ -32,7 +32,7 @@
                                         <h2 class="text-info">{{ $time->h }}:{{ $time->i }}:{{ $time->s }}</h2>
                                     </div>
                                 </div>
-                                @if (Auth::user()->role != 'dokter')
+                                @if (Auth::user()->role != 'admin' or Auth::user()->role != 'dokter')
                                 <div class="col-xxl-12 col-md-6">
                                     <div>
                                         <button type="button" type="submit" class="btn btn-warning btn-animation waves-effect waves-light"
@@ -74,7 +74,7 @@
             </div>
             <div class="row mt-2">
                 <div class="col-lg-12">
-                    @if(Auth::user()->role == 'dokter')
+                    @if(Auth::user()->role == 'admin' or Auth::user()->role == 'dokter')
                     <form action="{{ route('resepobat.keluhan', $pasien->keluhan->pasien_id) }}" method="post">
                         @csrf
                         <div class="card">
@@ -114,7 +114,7 @@
                     @endif
                     <div class="card">
                         <div class="card-header">
-                            @if (Auth::user()->role == 'dokter')
+                            @if (Auth::user()->role == 'admin' or Auth::user()->role == 'dokter')
                                 <button type="button" class="btn btn-outline-secondary custom-toggle" data-bs-toggle="modal" data-bs-target="#tambahResep" style="float: right">
                                     <span class="icon-on"><i class="ri-add-line align-bottom me-1"></i> Tambah</span>                                        </button>
                                 <h4 class="card-title mb-0">Masukkan Resep Obat</h4>
@@ -129,7 +129,7 @@
                                         <th scope="col">Kode</th>
                                         <th scope="col">Obat</th>
                                         <th scope="col">Pemakaian</th>
-                                        @if (Auth::user()->role == 'dokter')
+                                        @if (Auth::user()->role == 'admin' or Auth::user()->role == 'dokter')
                                             <th scope="col">Aksi</th>
                                         @endif
                                     </tr>
@@ -142,7 +142,7 @@
                                                 <td>{{ $o->kode }}</td>
                                                 <td>{{ $o->nama_obat }}</td>
                                                 <td>{{ $o->pemakaian }}</td>
-                                                @if (Auth::user()->role == 'dokter')
+                                                @if (Auth::user()->role == 'admin' or Auth::user()->role == 'dokter')
                                                     <td>
                                                         <a href="{{ route('resepobat.destroy', $o->id) }}" class="link-warning">Hapus<i
                                                                 class="ri-arrow-right-line align-middle"></i>

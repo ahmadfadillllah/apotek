@@ -51,23 +51,18 @@
                                 <input type="text" class="form-control" name="alamat" value="{{ $p->alamat }}" required>
                             </div>
                         </div>
-                        <div class="col-lg-12">
+                        <div class="col-xxl-6">
                             <label for="genderInput" class="form-label">Jenis Kelamin</label>
-                            <div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" selected type="radio" name="jenis_kelamin" id="inlineRadio1" value="Laki-laki">
-                                    <label class="form-check-label" for="inlineRadio1">Laki-laki</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="inlineRadio2" value="Perempuan">
-                                    <label class="form-check-label" for="inlineRadio2">Perempuan</label>
-                                </div>
-                            </div>
+                            <select class="form-select rounded-pill" aria-label="Default select example" name="jenis_kelamin" required>
+                                <option {{ $p->jenis_kelamin == $p->jenis_kelamin ? "$p->jenis_kelamin" : ""}} value="{{ $p->jenis_kelamin }}">{{ $p->jenis_kelamin }}
+                                <option value="Laki-laki">Laki-laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                            </select>
                         </div>
                         <div class="col-xxl-6">
                             <label for="genderInput" class="form-label">Poli</label>
-                            <select class="form-select rounded-pill mb-3" aria-label="Default select example" name="poli" required>
-                                <option selected value="">Pilih poli</option>
+                            <select class="form-select rounded-pill" aria-label="Default select example" name="poli" required>
+                                <option {{ $p->poli == $p->poli ? "$p->poli" : ""}} value="{{ $p->poli }}">{{ $p->poli }}
                                 <option value="Poliklinik Penyakit Dalam">Poliklinik Penyakit Dalam</option>
                                 <option value="Poliklinik Bedah">Poliklinik Bedah</option>
                                 <option value="Poliklinik Kebidanan & Kandungan">Poliklinik Kebidanan & Kandungan</option>

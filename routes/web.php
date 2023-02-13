@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardPasienController;
 use App\Http\Controllers\DataObatController;
 use App\Http\Controllers\DataPasien;
 use App\Http\Controllers\DataPasienController;
+use App\Http\Controllers\DataUserController;
 use App\Http\Controllers\ItemsetController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResepObatController;
@@ -37,7 +38,7 @@ Route::get('/login_page', [AuthController::class, 'login'])->name('login');
 Route::post('/login/post', [AuthController::class, 'loginpost'])->name('login.post');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::middleware(['auth', 'checkRole:perawat,dokter,apoteker,pasien'])->group(function () {
+Route::middleware(['auth', 'checkRole:perawat,dokter,apoteker,pasien,admin'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
     Route::get('/data_pasien', [DataPasienController::class, 'index'])->name('datapasien.index');
@@ -58,6 +59,12 @@ Route::middleware(['auth', 'checkRole:perawat,dokter,apoteker,pasien'])->group(f
     Route::get('/resep_obat/{pasien_id}/destroy', [ResepObatController::class, 'destroy'])->name('resepobat.destroy');
     Route::get('/resep_obat/{id}/hapusobat', [ResepObatController::class, 'hapusobat'])->name('resepobat.hapusobat');
     Route::post('/resep_obat/keluhan/{pasien_id}', [ResepObatController::class, 'keluhan'])->name('resepobat.keluhan');
+
+    Route::get('/dashboard/data_users', [DataUserController::class, 'index'])->name('datauser.index');
+    Route::post('/dashboard/data_users/insert', [DataUserController::class, 'insert'])->name('datauser.insert');
+    Route::post('/dashboard/data_users/update/{id}', [DataUserController::class, 'update'])->name('datauser.update');
+    Route::get('/dashboard/data_users/changepassword/{id}', [DataUserController::class, 'changepassword'])->name('datauser.changepassword');
+    Route::get('/dashboard/data_users/destroy/{id}', [DataUserController::class, 'destroy'])->name('datauser.destroy');
 
     Route::get('/dashboard/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::post('/dashboard/profile/update', [ProfileController::class, 'update'])->name('profile.update');

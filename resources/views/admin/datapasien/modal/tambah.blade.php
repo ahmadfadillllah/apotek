@@ -66,16 +66,16 @@
                         </div>
                         <div class="col-xxl-6">
                             <label for="genderInput" class="form-label">Poli</label>
-                            <select class="form-select rounded-pill mb-3" aria-label="Default select example" name="poli" required>
-                                <option selected value="">Pilih poli</option>
-                                <option value="Poliklinik Penyakit Dalam">Poliklinik Penyakit Dalam</option>
-                                <option value="Poliklinik Bedah">Poliklinik Bedah</option>
-                                <option value="Poliklinik Kebidanan & Kandungan">Poliklinik Kebidanan & Kandungan</option>
-                                <option value="Poliklinik Anak">Poliklinik Anak</option>
-                                <option value="Poliklinik Beda Saraf">Poliklinik Beda Saraf</option>
-                                <option value="Poliklinik Gigi & Mulut">Poliklinik Gigi & Mulut</option>
-                                <option value="Poliklinik THT">Poliklinik THT</option>
-                                <option value="Poliklinik Umum">Poliklinik Umum</option>
+                            <select class="form-select rounded-pill" aria-label="Default select example" name="poli" required>
+                                <option selected value="">Pilih salah satu</option>
+                                    <option value="Poliklinik Penyakit Dalam">Poliklinik Penyakit Dalam</option>
+                                    <option value="Poliklinik Bedah">Poliklinik Bedah</option>
+                                    <option value="Poliklinik Kebidanan & Kandungan">Poliklinik Kebidanan & Kandungan</option>
+                                    <option value="Poliklinik Anak">Poliklinik Anak</option>
+                                    <option value="Poliklinik Bedah Saraf">Poliklinik Bedah Saraf</option>
+                                    <option value="Poliklinik Gigi & Mulut">Poliklinik Gigi & Mulut</option>
+                                    <option value="Poliklinik THT">Poliklinik THT</option>
+                                    <option value="Poliklinik Umum">Poliklinik Umum</option>
                             </select>
                         </div>
                         <div class="col-lg-12">
