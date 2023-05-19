@@ -32,7 +32,7 @@
                                         <h2 class="text-info">{{ $time->h }}:{{ $time->i }}:{{ $time->s }}</h2>
                                     </div>
                                 </div>
-                                @if (Auth::user()->role != 'admin' or Auth::user()->role != 'dokter')
+                                @if (Auth::user()->role != 'dokter')
                                 <div class="col-xxl-12 col-md-6">
                                     <div>
                                         <button type="button" type="submit" class="btn btn-warning btn-animation waves-effect waves-light"

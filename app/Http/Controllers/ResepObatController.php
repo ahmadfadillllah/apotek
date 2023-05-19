@@ -20,7 +20,10 @@ class ResepObatController extends Controller
     {
         // $pasien = Antrian::with('datapasien')->whereNotNull('no_antrian')->orderBy('no_antrian', 'asc')->get();
 
-        $pasien = DataPasien::with('antrian')->where('poli', Auth::user()->poli)->get();
+        if(Auth::user()->role != 'apoteker'){
+            $pasien = DataPasien::with('antrian')->where('poli', Auth::user()->poli)->get();
+        }
+        $pasien = DataPasien::with('antrian')->get();
         // dd($pasien);
         return view('admin.resepobat.index', compact('pasien'));
     }
