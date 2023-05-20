@@ -27,12 +27,14 @@
                         <div class="card-body">
                             <div class="row gy-4">
                                 <div class="col-xxl-6 col-md-6">
+                                    @if ($pasien->antrian->no_antrian != null)
                                     <div>
                                         <label for="disabledInput" class="form-label">Durasi Waktu</label>
                                         <h2 class="text-info">{{ $time->h }}:{{ $time->i }}:{{ $time->s }}</h2>
                                     </div>
+                                    @endif
                                 </div>
-                                @if (Auth::user()->role != 'dokter')
+                                @if (Auth::user()->role == 'dokter')
                                 <div class="col-xxl-12 col-md-6">
                                     <div>
                                         <button type="button" type="submit" class="btn btn-warning btn-animation waves-effect waves-light"

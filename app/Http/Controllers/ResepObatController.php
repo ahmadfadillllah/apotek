@@ -19,18 +19,18 @@ class ResepObatController extends Controller
     public function index()
     {
         // $pasien = Antrian::with('datapasien')->whereNotNull('no_antrian')->orderBy('no_antrian', 'asc')->get();
+        $no_antrian = Antrian::min('no_antrian');
 
         if(Auth::user()->role != 'apoteker'){
-            $pasien = DataPasien::with('antrian')->where('poli', Auth::user()->poli)->get();
+            $pasien = DataPasien::with('antrian','keluhan')->where('poli', Auth::user()->poli)->get();
         }
-        $pasien = DataPasien::with('antrian')->get();
-        // dd($pasien);
-        return view('admin.resepobat.index', compact('pasien'));
+        $pasien = DataPasien::with('antrian','keluhan')->get();
+        return view('admin.resepobat.index', compact('pasien', 'no_antrian'));
     }
 
     public function resep(Request $request, $id)
     {
-        $pasien = DataPasien::with('keluhan')->where('id', $id)->first();
+        $pasien = DataPasien::with('keluhan', 'antrian')->where('id', $id)->first();
         $time = date_diff(Carbon::create($pasien->keluhan->start_date), Carbon::now());
 
         $obat = ResepObat::join('dataobat', 'resepobat.dataobat_id', 'dataobat.id')
@@ -104,10 +104,10 @@ class ResepObatController extends Controller
     {
         try {
             Antrian::where('pasien_id', $pasien_id)->update(['no_antrian' => NULL]);
-            Keluhan::where('pasien_id', $pasien_id)->update(['keluhan' => NULL]);
-            ResepObat::where('pasien_id', $pasien_id)->delete();
+            // Keluhan::where('pasien_id', $pasien_id)->update(['keluhan' => NULL]);
+            // ResepObat::where('pasien_id', $pasien_id)->delete();
 
-            return redirect()->route('datapasien.index')->with('success','Berhasil mengakhiri pasien');
+            return redirect()->route('resepobat.index')->with('success','Berhasil mengakhiri pasien');
         } catch (\Throwable $th) {
             return redirect()->back()->with('success',$th->getMessage());
         }
