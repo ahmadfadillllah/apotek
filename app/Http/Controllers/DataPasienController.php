@@ -111,7 +111,7 @@ class DataPasienController extends Controller
         $no_antrian = $data_antrian + 1;
 
         try {
-            Antrian::where('pasien_id', $pasien_id)->update(['no_antrian' => $no_antrian]);
+            Antrian::where('pasien_id', $pasien_id)->update(['no_antrian' => $no_antrian, 'statusantrian' => 'Menunggu Obat']);
 
             return redirect()->route('datapasien.index')->with('success','No. Antrian telah diambil');
         } catch (\Throwable $th) {

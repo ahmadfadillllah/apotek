@@ -49,6 +49,7 @@
                             <p class="text-muted">No. Antrian: <span class="badge badge-gradient-primary">{{ $p->antrian->no_antrian }}</span></p>
                             <p class="text-muted mb-0">NIK: {{ $p->nik_ktp }}</p>
                             <p class="text-muted mb-0">No. Handphone: {{ $p->nohp }}</p>
+                            <p class="text-muted"><span class="badge badge-gradient-primary">Status : {{ $p->antrian->statusantrian }}</span></p>
                         </div>
                         @if (Auth::user()->role == 'admin' or Auth::user()->role == 'dokter' or Auth::user()->role == 'apoteker')
                         <div class="card-footer text-center">
@@ -65,6 +66,7 @@
                             <p class="text-muted">No. Antrian: <span class="badge badge-gradient-primary">{{ $p->antrian->no_antrian }}</span></p>
                             <p class="text-muted mb-0">NIK: {{ $p->nik_ktp }}</p>
                             <p class="text-muted mb-0">No. Handphone: {{ $p->nohp }}</p>
+                            <p class="text-muted"><span class="badge badge-gradient-primary">Status : {{ $p->antrian->statusantrian }}</span></p>
                         </div>
                         @if (Auth::user()->role == 'admin' or Auth::user()->role == 'dokter' or Auth::user()->role == 'apoteker')
                         <div class="card-footer text-center">
@@ -85,6 +87,7 @@
                             <p class="text-muted">No. Antrian: <span class="badge badge-gradient-primary">{{ $p->antrian->no_antrian }}</span></p>
                             <p class="text-muted mb-0">NIK: {{ $p->nik_ktp }}</p>
                             <p class="text-muted mb-0">No. Handphone: {{ $p->nohp }}</p>
+                            <p class="text-muted"><span class="badge badge-gradient-primary">Status : {{ $p->antrian->statusantrian }}</span></p>
                         </div>
                         @if (Auth::user()->role == 'admin' or Auth::user()->role == 'dokter' or Auth::user()->role == 'apoteker')
                         <div class="card-footer text-center">
@@ -101,6 +104,7 @@
                             <p class="text-muted">No. Antrian: <span class="badge badge-gradient-primary">{{ $p->antrian->no_antrian }}</span></p>
                             <p class="text-muted mb-0">NIK: {{ $p->nik_ktp }}</p>
                             <p class="text-muted mb-0">No. Handphone: {{ $p->nohp }}</p>
+                            <p class="text-muted"><span class="badge badge-gradient-primary">Status : {{ $p->antrian->statusantrian }}</span></p>
                         </div>
                         @if (Auth::user()->role == 'admin' or Auth::user()->role == 'dokter' or Auth::user()->role == 'apoteker')
                         <div class="card-footer text-center">

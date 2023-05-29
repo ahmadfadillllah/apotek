@@ -13,7 +13,8 @@ class Antrian extends Model
 
     protected $fillable = [
         'pasien_id',
-        'no_antrian'
+        'no_antrian',
+        'statusantrian'
     ];
 
     public function datapasien()

@@ -17,6 +17,7 @@ class CreateAntrianTable extends Migration
             $table->id();
             $table->foreignId('pasien_id')->constrained('datapasien')->cascadeOnDelete();
             $table->integer('no_antrian')->nullable();
+            $table->string('statusantrian')->nullable();
             $table->timestamps();
         });
     }
