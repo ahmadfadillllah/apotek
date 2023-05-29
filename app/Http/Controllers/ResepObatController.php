@@ -33,12 +33,14 @@ class ResepObatController extends Controller
         $pasien = DataPasien::with('keluhan', 'antrian')->where('id', $id)->first();
         $time = date_diff(Carbon::create($pasien->keluhan->start_date), Carbon::now());
 
+        $time_update = date_diff(Carbon::create($pasien->keluhan->updated_at), Carbon::now());
+
         $obat = ResepObat::join('dataobat', 'resepobat.dataobat_id', 'dataobat.id')
         ->select('resepobat.id', 'dataobat.kode', 'dataobat.nama_obat', 'resepobat.pemakaian')->where('pasien_id', $id)->get();
 
         $dataobat = DataObat::all();
 
-        return view('admin.resepobat.show', compact('pasien','obat', 'dataobat', 'time'));
+        return view('admin.resepobat.show', compact('pasien','obat', 'dataobat', 'time', 'time_update'));
     }
 
     public function update(Request $request, $id)

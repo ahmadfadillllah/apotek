@@ -33,6 +33,13 @@
                                         <h2 class="text-info">{{ $time->h }}:{{ $time->i }}:{{ $time->s }}</h2>
                                     </div>
                                     @endif
+
+                                    @if ($pasien->antrian->no_antrian == null)
+                                    <div>
+                                        <label for="disabledInput" class="form-label">Durasi Waktu</label>
+                                        <h2 class="text-info">{{ $time_update->h }}:{{ $time_update->i }}:{{ $time_update->s }}</h2>
+                                    </div>
+                                    @endif
                                 </div>
                                 @if (Auth::user()->role == 'dokter')
                                 <div class="col-xxl-12 col-md-6">
