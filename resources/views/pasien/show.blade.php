@@ -25,7 +25,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header align-items-center d-flex">
-                            <h4 class="card-title mb-0 flex-grow-1">Data Pasien</h4>
+                            <h4 class="card-title mb-0 flex-grow-1">Data Pasien <span class="badge badge-gradient-primary">Status : {{ $pasien->antrian->statusantrian }}</span></h4>
                             <h5>Lama Menunggu : <span id="jam"></span></h5>
 
                         </div><!-- end card header -->
