@@ -23,8 +23,9 @@ class ResepObatController extends Controller
 
         if(Auth::user()->role != 'apoteker'){
             $pasien = DataPasien::with('antrian','keluhan')->where('poli', Auth::user()->poli)->get();
+        }else{
+            $pasien = DataPasien::with('antrian','keluhan')->get();
         }
-        $pasien = DataPasien::with('antrian','keluhan')->get();
         return view('admin.resepobat.index', compact('pasien', 'no_antrian'));
     }
 
