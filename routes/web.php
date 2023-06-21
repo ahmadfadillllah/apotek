@@ -57,6 +57,7 @@ Route::middleware(['auth', 'checkRole:perawat,dokter,apoteker,pasien,admin'])->g
     Route::post('/resep_obat/{id}/update', [ResepObatController::class, 'update'])->name('resepobat.update');
     Route::post('/resep_obat/{pasien_id}/insert', [ResepObatController::class, 'insert'])->name('resepobat.insert');
     Route::get('/resep_obat/{pasien_id}/destroy', [ResepObatController::class, 'destroy'])->name('resepobat.destroy');
+    Route::get('/resep_obat/{pasien_id}/selesai', [ResepObatController::class, 'selesai'])->name('resepobat.selesai');
     Route::get('/resep_obat/{id}/hapusobat', [ResepObatController::class, 'hapusobat'])->name('resepobat.hapusobat');
     Route::post('/resep_obat/keluhan/{pasien_id}', [ResepObatController::class, 'keluhan'])->name('resepobat.keluhan');
 

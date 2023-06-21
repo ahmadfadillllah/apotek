@@ -115,4 +115,15 @@ class ResepObatController extends Controller
             return redirect()->back()->with('success',$th->getMessage());
         }
     }
+
+    public function selesai($pasien_id)
+    {
+        try {
+            Antrian::where('pasien_id', $pasien_id)->update(['statusantrian' => 'Obat Selesai']);
+
+            return redirect()->route('resepobat.index')->with('success','Berhasil menyelesaikan pasien');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('success',$th->getMessage());
+        }
+    }
 }

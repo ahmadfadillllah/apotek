@@ -50,6 +50,15 @@
                                     </div>
                                 </div>
                                 @endif
+                                @if (Auth::user()->role == 'apoteker' and $pasien->antrian->statusantrian == 'Menunggu Obat')
+                                <div class="col-xxl-12 col-md-6">
+                                    <div>
+                                        <button type="button" type="submit" class="btn btn-warning btn-animation waves-effect waves-light"
+                                        data-text="Selesai Pasien" data-bs-toggle="modal" data-bs-target="#selesaiPasien-{{ $pasien->id }}"><span>Akhiri Pasien</span></button>
+                                        @include('admin.resepobat.selesai')
+                                    </div>
+                                </div>
+                                @endif
                             </div>
                         </div><!-- end card-body -->
                     </div><!-- end card -->
